@@ -1,14 +1,8 @@
 import { createStore } from 'vuex'
+import {LoggedInModule} from "@/store/LoggedInModule";
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
+    loggedInMod: LoggedInModule
   }
 })

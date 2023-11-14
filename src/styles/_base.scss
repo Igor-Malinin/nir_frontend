@@ -1,0 +1,65 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;500;700&family=Roboto:wght@300;500;700&family=Poppins:wght@200;300;400;500;700&display=swap');
+
+body {
+  font-family: $font_main;
+  background: $dark;
+  color: $font;
+  font-size: 16px;
+}
+
+a {
+  color: $font;
+  transition: color .15s ease-in;
+  &:hover {
+    color: $accent;
+  }
+  &.router-link-exact-active {
+    color: $accent;
+  }
+}
+
+.link_bold {
+  font-weight: 700;
+  color: $accent;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1140px;
+
+  &__small {
+    max-width: 824px;
+  }
+}
+
+.visually_hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.none {
+  display: none !important;
+}
+
+.no_scroll {
+  overflow-y: hidden;
+}
+
+.title_2 {
+  font-family: $font_accent;
+  font-size: 36px;
+  font-weight: 700;
+  color: $accent;
+
+  @include mediaTablet {
+    font-size: 28px;
+  }
+}
