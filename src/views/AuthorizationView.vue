@@ -4,35 +4,20 @@
       <span></span>
       <span></span>
       <span></span>
-      <Transition name="slide">
-        <login-form v-if="registered" @changeView="changeView" class="form" />
-        <registration-form v-else @changeView="changeView" class="form" />
-      </Transition>
+      <div class="transitions" :class="{transition1: registered, transition2: !registered}">
+        <Transition name="slide" class="transition">
+          <login-form v-if="registered" @changeView="changeView" class="form" />
+          <registration-form v-else @changeView="changeView" class="form" />
+        </Transition>
+      </div>
     </div>
-
-
-<!--    <h1 class="auth__title">Авторизация</h1>-->
-<!--    <mis-button @click="googleAuth" v-if="!loggedIn">Авторизоваться через Google</mis-button>-->
-<!--    <mis-button @click="vkAuth" v-if="!loggedIn">Авторизоваться через ВКонтакте</mis-button>-->
-<!--    <div v-else>-->
-<!--      <p>{{userData.name}}</p>-->
-<!--      <p>{{userData.surname}}</p>-->
-<!--      <p>{{userData.email}}</p>-->
-<!--      <p><img :src="userData.picture" width="100" alt="UserImage"></p>-->
-<!--    </div>-->
-<!--    <mis-button @click="vkPost" v-if="senMes">пост ВКонтакте</mis-button>-->
-<!--    <mis-button @click="revoke">revoke</mis-button>-->
-
-
-
-<!--    <pre id="content" style="white-space: pre-wrap;"></pre>-->
-<!--    <p>{{textSnip}}</p>-->
   </div>
 </template>
 
 <script>
-import LoginForm from "@/components/LoginForm.vue";
-import RegistrationForm from "@/components/RegistrationForm.vue";
+import LoginForm from "@/components/MISForms/LoginForm.vue";
+import RegistrationForm from "@/components/MISForms/RegistrationForm.vue";
+import GmailMixin from "@/mixins/GmailMixin";
 
 export default {
   name: "AuthorizationView",
@@ -41,9 +26,6 @@ export default {
     return {
       registered: true,
     }
-  },
-  mounted() {
-
   },
   methods: {
     changeView(value) {
@@ -64,19 +46,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.transitions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .slide-enter-active,
 .slide-leave-active {
   transition: all 1s ease-in-out;
 }
-
-.slide-enter-from {
-  opacity: 0;
-  transform: translateX(100%);
+.transition1 {
+  .slide-enter-from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  .slide-leave-to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 }
-
-.slide-leave-to {
-  opacity: 0;
-  transform: translateX(-100%);
+.transition2 {
+  .slide-enter-from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  .slide-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 }
 .auth {
   width: 100vw;
@@ -86,7 +83,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: -10;
+  //z-index: -10;
   transition: all 1s ease-in-out;
 
   &:before {
@@ -95,7 +92,7 @@ export default {
     inset: 0;
     background: url("@/assets/bg1.jpeg") fixed center;
     background-size: cover;
-    z-index: -5;
+    //z-index: -5;
   }
 
   &:after {
@@ -105,7 +102,7 @@ export default {
     background: url("@/assets/bg2.jpeg") fixed center;
     opacity: 0;
     background-size: cover;
-    z-index: -5;
+    //z-index: -5;
     transition: 1s ease-in-out;
   }
 }
@@ -120,7 +117,7 @@ export default {
 .auth__container {
   position: relative;
   width: 370px;
-  height: 400px;
+  height: 460px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -129,21 +126,23 @@ export default {
   z-index: 10;
   transition: 1s;
   overflow: hidden;
+  margin-top: 80px;
 
   &:before {
     position: absolute;
     content: '';
     width: 100%;
     height: 100%;
-    background: repeating-conic-gradient(from var(--a), $accent 0%, $accent 12%, transparent 12%, transparent 80%, $accent 100%);
+    background: repeating-conic-gradient(from var(--a), #a12b70 0%, #a12b70 12%, transparent 12%, transparent 80%, #a12b70 100%);
+    filter: brightness(130%);
     border-radius: 15px;
-    animation: animate 10s linear infinite;
+    animation: animate 7s linear infinite;
   }
 }
 .auth.register .auth__container {
-  height: 450px;
+  height: 500px;
   &:before {
-    filter: hue-rotate(140deg);
+    filter: hue-rotate(300deg) brightness(200%);
   }
 }
 @property --a {

@@ -1,13 +1,11 @@
 <template>
   <div class="user-card">
-    <img class="user-card__photo" :src="userInfo.photo" alt="Photo">
+    <img class="user-card__photo" :src="userInfo.photo ? userInfo.photo : require(`@/assets/photo-placeholder.jpeg`)" alt="Photo">
     <div class="user-card__data">
       <p>{{userInfo.name}}</p>
       <p>{{userInfo.surname}}</p>
     </div>
-    <mis-button class="logout" v-if="userInfo.social === 'vk'" @click="$emit('logout', false)">Выйти</mis-button>
-    <mis-button class="logout" v-if="userInfo.social === 'google'">Выйти</mis-button>
-    <mis-button class="logout" v-if="userInfo.social === 'telegram'">Выйти</mis-button>
+    <mis-button @click="this.$router.push('/profile');">Профиль</mis-button>
   </div>
 </template>
 
@@ -40,10 +38,5 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-.logout {
-  border-color: $logout;
-  margin-left: 10px;
 }
 </style>

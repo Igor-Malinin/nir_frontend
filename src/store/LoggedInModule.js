@@ -2,10 +2,17 @@ export const LoggedInModule = {
   state: () => ({
     loggedIn: false,
     userInfo: {
+      sid: "",
+      // accessToken: "",
+      // expire: "",
+      // time: "",
       name: "",
       surname: "",
       photo: "",
-      social: ""
+      social: "",
+      password: "",
+      email: "",
+      phone: ""
     }
   }),
   getters: {

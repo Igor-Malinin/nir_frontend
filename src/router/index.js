@@ -9,9 +9,45 @@ const routes = [
     component: HomeView
   },
   {
+    path: '/create',
+    name: 'create',
+    component: () => import('../views/CreateMisView.vue')
+  },
+  {
+    path: '/active',
+    name: 'active',
+    // beforeEnter: (to, from, next) => {
+    //   const isAuthenticated = store.state.loggedInMod.loggedIn;
+    //   if (isAuthenticated) {
+    //     next();
+    //   } else {
+    //     next('/');
+    //   }
+    // },
+    component: () => import('../views/ActiveMisView.vue')
+  },
+  {
     path: '/contacts',
     name: 'contacts',
     component: () => import('../views/ContactsView.vue')
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = store.state.loggedInMod.loggedIn;
+      if (isAuthenticated) {
+        next();
+      } else {
+        next('/');
+      }
+    },
+    component: () => import('../views/UserProfileView.vue')
+  },
+  {
+    path: '/testing',
+    name: 'testing',
+    component: () => import('../views/TestingView.vue')
   },
   {
     path: '/auth',

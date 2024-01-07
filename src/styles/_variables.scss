@@ -4,11 +4,15 @@ $font_accent: 'Playfair Display', serif;
 $font_main: 'Raleway', sans-serif;
 
 // Colors
-$dark: #05203b;
+$dark: #04142d;
+$block: linear-gradient(#082746, #042241, #051a36);
+$block_border: linear-gradient(#808d91, #1c232c);
 $font: #fcecd3;
+$title: #5bd6d4;
 $light: #fcecd3;
 $accent: #fcdd82;
-$accent2: #82dbfc;
+$accent2: #5bd6d4;
+$accent3: #fcb599;
 $dark_accent2: #3b60a4;
 $white: #fff;
 $footer_bg: #2D343C;
@@ -16,8 +20,14 @@ $placeholder: #c4b8da;
 $privacy: #E7E7E7;
 $form: #063958;
 $form_link: #03132c;
+$test: #f5e5f8;
 
-$logout: #ffa0a0;
+$checked: linear-gradient(rgba(95, 175, 113, 0.11) 0%, rgba(67, 246, 18, 0.2) 100%);
+$danger: #f57773;
+$danger_back: rgba(206, 121, 119, 0.16);
+$danger_border: rgba(119, 63, 61, 0.66);
+$logout: #f69290;
+$logout_border: rgba(246, 146, 144, 0.50);
 
 // Media
 $tablet: 959px;

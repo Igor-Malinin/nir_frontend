@@ -3,7 +3,8 @@
 
 body {
   font-family: $font_main;
-  background: $dark;
+  background: url("/Users/ichigo/Documents/NIR/bgHome4.jpeg") fixed center no-repeat;
+  background-size: cover;
   color: $font;
   font-size: 16px;
 }
